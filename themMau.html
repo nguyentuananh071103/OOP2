@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+<script>
+    class Circle{
+        x;
+        y;
+        radius;
+        color;
+        constructor(x,y,radius, color) {
+            this.x = x
+            this.y = y
+            this.radius = radius
+            this.color = color
+        }
+        area(){
+            return this.radius*this.radius*Math.PI
+        }
+        perimeter(){
+            return this.radius*2*Math.PI
+        }
+        getColor(){
+            return this.color
+        }
+        draw(ctx){
+            ctx.beginPath()
+            ctx.arc(this.x, this.y, this.radius, 0,2*Math.PI )
+            ctx.fillStyle = this.color
+            ctx.fill()
+            ctx.closePath()
+        }
+    }
+    let x= Math.floor(Math.random()*window.innerHeight)
+    let y= Math.floor(Math.random()*window.innerHeight)
+
+    let ctx = document.getElementById('myCanvas').getContext('2d')
+   // let circle = new Circle(100,100,100)
+  //  ctx.beginPath()
+   // ctx.arc(100,100,100,0,2*Math.PI)
+   // ctx.fill();
+   // ctx.closePath()
+    //alert(circle.area() + " "+ circle.perimeter())
+     for(let i = 0; i<10; i++){
+         let x = Math.random()*500;
+         let y = Math.random()*500;
+         let circle = new Circle(x, y, 50, 'red')
+         circle.draw(ctx)
+     }
+</script>
+</body>
+</html>

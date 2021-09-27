@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="cv" width="300" height="500" style="border: 1px solid"></canvas>
+<script>
+    let convet = document.getElementById("cv")//lấy giấy
+    let ctx = convet.getContext('2d')//lấy bút
+    ctx.beginPath()
+    ctx.rect(100, 100, 30, 30)
+    ctx.fill()//stroke vẽ viền, fill là tô màu
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.arc(50, 50, 50, 0, 2*Math.PI)
+    ctx.fill()
+    ctx.closePath()
+</script>
+</body>
+</html>
