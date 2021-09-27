@@ -6,6 +6,7 @@
 </head>
 <body>
 <canvas id="cv" width="300" height="500" style="border: 1px solid"></canvas>
+<button onclick="moveSquare()">An di</button>
 <script>
 class Square{
     side
@@ -28,14 +29,27 @@ class Square{
         return this.side ** 2
     }
     draw(ctx){
+        ctx.beginPath()
         ctx.rect(0, 0, this.side, this.side)
         ctx.fillStyle
         ctx.fill()
+        ctx.closePath()
+    }
+    moveLert(){
+        this.x -= 10
+    }
+    moveDown(){
+        this.y += 10
     }
 }
-let sq1 = new Square(100)
+let sq1 = new Square(20, 100, 100, 'red')
 let ctx = document.getElementById('vc').getContext('2d')
-sq1.draw(ctx)
+
+function moveSquare(){
+    ctx.clearRect(sq.x, sq.side, sq.side)
+    sq.moveDown()
+    sq.draw(ctx)
+}
 </script>
 </body>
 </html>
